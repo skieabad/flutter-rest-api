@@ -14,6 +14,12 @@ class GetScreen extends StatelessWidgetBase {
       title: title!,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
           title: const Text('GET method'),
           centerTitle: true,
           backgroundColor: const Color.fromARGB(255, 28, 123, 130),

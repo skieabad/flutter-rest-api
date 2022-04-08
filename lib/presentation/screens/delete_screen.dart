@@ -27,6 +27,12 @@ class _DeleteScreenState extends State<DeleteScreen> {
       title: widget.title!,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
           title: const Text('DELETE method'),
           centerTitle: true,
           backgroundColor: const Color.fromARGB(255, 243, 86, 33),

@@ -29,6 +29,12 @@ class _UpdateScreenState extends State<UpdateScreen> {
       title: widget.title!,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
           title: const Text('PUT method'),
           centerTitle: true,
           backgroundColor: Colors.black,

@@ -22,16 +22,25 @@ class _AddScreenState extends State<AddScreen> {
       title: widget.title!,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
           title: const Text('POST method'),
           centerTitle: true,
         ),
         body: SafeArea(
           child: (_futureAlbum == null)
-              ? buildColumm(_titleController, () {
-                  setState(() {
-                    _futureAlbum = createAlbum(_titleController.text);
-                  });
-                })
+              ? buildColumm(
+                  _titleController,
+                  () {
+                    setState(() {
+                      _futureAlbum = createAlbum(_titleController.text);
+                    });
+                  },
+                )
               : buildFutureBuilder(_futureAlbum),
         ),
       ),

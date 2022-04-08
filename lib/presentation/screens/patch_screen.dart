@@ -27,6 +27,12 @@ class _PatchScreenState extends State<PatchScreen> {
       title: widget.title!,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
           title: const Text('PATCH method'),
           centerTitle: true,
           backgroundColor: const Color.fromARGB(255, 228, 110, 249),
