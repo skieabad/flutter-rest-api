@@ -36,9 +36,11 @@ class _AddScreenState extends State<AddScreen> {
               ? buildColumm(
                   _titleController,
                   () {
-                    setState(() {
-                      _futureAlbum = createAlbum(_titleController.text);
-                    });
+                    setState(
+                      () {
+                        _futureAlbum = createAlbum(_titleController.text);
+                      },
+                    );
                   },
                 )
               : buildFutureBuilder(_futureAlbum),

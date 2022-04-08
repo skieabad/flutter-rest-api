@@ -56,24 +56,22 @@ class _UpdateScreenState extends State<UpdateScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  FittedBox(
-                    child: Text(
-                      snapshot.data!.title!,
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                          fontSize: 24,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    snapshot.data!.body!,
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                          fontSize: 18,
-                          color: Colors.black,
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+                    child: Card(
+                      child: ListTile(
+                        contentPadding: const EdgeInsets.all(12),
+                        title: Text(
+                          snapshot.data!.title!,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
+                        subtitle: Text(
+                          snapshot.data!.body!,
+                        ),
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(40, 20, 40, 10),

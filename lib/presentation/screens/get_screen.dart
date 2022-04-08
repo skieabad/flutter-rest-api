@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rest_api/data/models/photos_model.dart';
-import 'package:flutter_rest_api/data/repository/photos_repository.dart';
+import 'package:flutter_rest_api/data/models/post_model.dart';
 import 'package:flutter_rest_api/presentation/base/stateless_widget_base.dart';
 
+import '../../data/repository/post_repository.dart';
 import '../widgets/get_screen_widgets.dart';
 
 class GetScreen extends StatelessWidgetBase {
@@ -25,23 +25,24 @@ class GetScreen extends StatelessWidgetBase {
           backgroundColor: const Color.fromARGB(255, 28, 123, 130),
         ),
         body: SafeArea(
-          child: FutureBuilder<List<Photos>>(
-              future: fetchPhotos(),
-              builder: (context, snapshot) {
-                if (snapshot.hasError) {
-                  return const Center(
-                    child: Text('an error has occured'),
-                  );
-                } else if (snapshot.hasData) {
-                  return getScreenWidgets(snapshot.data);
-                } else {
-                  return const Center(
-                    child: CircularProgressIndicator(
-                      color: Color.fromARGB(255, 28, 123, 130),
-                    ),
-                  );
-                }
-              }),
+          child: FutureBuilder<List<Posts>>(
+            future: fetchPosts(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return const Center(
+                  child: Text('an error has occured'),
+                );
+              } else if (snapshot.hasData) {
+                return getScreenWidgets(snapshot.data);
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(
+                    color: Color.fromARGB(255, 28, 123, 130),
+                  ),
+                );
+              }
+            },
+          ),
         ),
       ),
     );

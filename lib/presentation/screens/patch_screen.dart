@@ -54,31 +54,22 @@ class _PatchScreenState extends State<PatchScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Text(
-                  //   'User id: ${snapshot.data!.userId.toString()}',
-                  //   style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                  //         fontSize: 24,
-                  //         color: Colors.black,
-                  //       ),
-                  // ),
-                  FittedBox(
-                    child: Text(
-                      snapshot.data!.title!,
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                          fontSize: 24,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    snapshot.data!.body!,
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                          fontSize: 18,
-                          color: Colors.black,
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+                    child: Card(
+                      child: ListTile(
+                        contentPadding: const EdgeInsets.all(12),
+                        title: Text(
+                          snapshot.data!.title!,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
+                        subtitle: Text(
+                          snapshot.data!.body!,
+                        ),
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
@@ -108,8 +99,6 @@ class _PatchScreenState extends State<PatchScreen> {
                     child: ElevatedButton(
                       onPressed: () {
                         setState(() {
-                          // _futureAlbum = patchAlbum(
-                          //   int.parse(_userIdController.text),
                           _futureAlbum = patchAlbum(_bodyController.text);
                           _bodyController.clear();
                         });
