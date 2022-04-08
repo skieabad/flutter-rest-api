@@ -69,7 +69,7 @@ class _AddScreenState extends State<AddScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  snapshot.data!.title,
+                  snapshot.data!.title!,
                   style: const TextStyle(fontSize: 18),
                 ),
                 const SizedBox(

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rest_api/data/models/album_model.dart';
 import 'package:flutter_rest_api/data/repository/album_repository.dart';
+import 'package:flutter_rest_api/presentation/base/stateful_widget_base.dart';
 
-class UpdateScreen extends StatefulWidget {
-  const UpdateScreen({Key? key}) : super(key: key);
+class UpdateScreen extends StatefulWidgetBase {
+  const UpdateScreen({Key? key, title = 'Update'})
+      : super(key: key, title: title);
 
   @override
   State<UpdateScreen> createState() => _UpdateScreenState();
@@ -23,14 +25,17 @@ class _UpdateScreenState extends State<UpdateScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('PUT method'),
-        centerTitle: true,
-        backgroundColor: Colors.black,
-      ),
-      body: SafeArea(
-        child: buildFutureBuilder(),
+    return MaterialApp(
+      title: widget.title!,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('PUT method'),
+          centerTitle: true,
+          backgroundColor: Colors.black,
+        ),
+        body: SafeArea(
+          child: buildFutureBuilder(),
+        ),
       ),
     );
   }
@@ -47,7 +52,7 @@ class _UpdateScreenState extends State<UpdateScreen> {
                 children: [
                   FittedBox(
                     child: Text(
-                      snapshot.data!.title,
+                      snapshot.data!.title!,
                       style: Theme.of(context).textTheme.displaySmall?.copyWith(
                           fontSize: 24,
                           color: Colors.black,
@@ -58,7 +63,7 @@ class _UpdateScreenState extends State<UpdateScreen> {
                     height: 20,
                   ),
                   Text(
-                    snapshot.data!.body,
+                    snapshot.data!.body!,
                     style: Theme.of(context).textTheme.displaySmall?.copyWith(
                           fontSize: 18,
                           color: Colors.black,

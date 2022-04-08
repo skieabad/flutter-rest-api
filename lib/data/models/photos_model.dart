@@ -1,4 +1,10 @@
 class Photos {
+  final int? albumId;
+  final int? id;
+  final String? title;
+  final String? url;
+  final String? thumbnailUrl;
+
   Photos({
     this.albumId,
     this.id,
@@ -7,18 +13,12 @@ class Photos {
     this.thumbnailUrl,
   });
 
-  final int? albumId;
-  final int? id;
-  final String? title;
-  final String? url;
-  final String? thumbnailUrl;
-
   factory Photos.fromJson(Map<String, dynamic> json) => Photos(
-        albumId: json['albumId'],
-        id: json['id'],
-        title: json['title'],
-        url: json['url'],
-        thumbnailUrl: json['thumbnailUrl'],
+        albumId: json['albumId'] as int,
+        id: json['id'] as int,
+        title: json['title'] as String,
+        url: json['url'] as String,
+        thumbnailUrl: json['thumbnailUrl'] as String,
       );
 
   Map<String, dynamic> toJson() => {

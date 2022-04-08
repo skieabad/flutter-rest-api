@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rest_api/data/models/album_model.dart';
 import 'package:flutter_rest_api/data/repository/album_repository.dart';
+import 'package:flutter_rest_api/presentation/base/stateful_widget_base.dart';
 
-class PatchScreen extends StatefulWidget {
-  const PatchScreen({Key? key}) : super(key: key);
+class PatchScreen extends StatefulWidgetBase {
+  const PatchScreen({Key? key, title = 'Patch'})
+      : super(key: key, title: title);
 
   @override
   State<PatchScreen> createState() => _PatchScreenState();
@@ -21,14 +23,17 @@ class _PatchScreenState extends State<PatchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('PATCH method'),
-        centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 228, 110, 249),
-      ),
-      body: SafeArea(
-        child: futurePatch(),
+    return MaterialApp(
+      title: widget.title!,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('PATCH method'),
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 228, 110, 249),
+        ),
+        body: SafeArea(
+          child: futurePatch(),
+        ),
       ),
     );
   }
@@ -52,7 +57,7 @@ class _PatchScreenState extends State<PatchScreen> {
                   // ),
                   FittedBox(
                     child: Text(
-                      snapshot.data!.title,
+                      snapshot.data!.title!,
                       style: Theme.of(context).textTheme.displaySmall?.copyWith(
                           fontSize: 24,
                           color: Colors.black,
@@ -63,7 +68,7 @@ class _PatchScreenState extends State<PatchScreen> {
                     height: 20,
                   ),
                   Text(
-                    snapshot.data!.body,
+                    snapshot.data!.body!,
                     style: Theme.of(context).textTheme.displaySmall?.copyWith(
                           fontSize: 18,
                           color: Colors.black,

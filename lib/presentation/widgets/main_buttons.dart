@@ -10,7 +10,9 @@ Widget mainButtons(
       child: ElevatedButton(
         onPressed: onPressed,
         child: Text(buttonText),
-        style: ElevatedButton.styleFrom(primary: colorButton),
+        style: ElevatedButton.styleFrom(
+          primary: colorButton,
+        ),
       ),
     ),
   );
