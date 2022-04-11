@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rest_api/data/models/album_model.dart';
-import 'package:flutter_rest_api/data/repository/album_repository.dart';
 import 'package:flutter_rest_api/presentation/base/stateful_widget_base.dart';
 
+import '../../data/repositories/album_repository.dart';
 import '../widgets/add_screen_widgets.dart';
 
 class AddScreen extends StatefulWidgetBase {

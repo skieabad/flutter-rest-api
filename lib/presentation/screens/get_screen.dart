@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rest_api/data/models/post_model.dart';
 import 'package:flutter_rest_api/presentation/base/stateless_widget_base.dart';
 
-import '../../data/repository/post_repository.dart';
+import '../../data/repositories/post_repository.dart';
 import '../widgets/get_screen_widgets.dart';
 
 class GetScreen extends StatelessWidgetBase {
